@@ -15,6 +15,7 @@ use yii\web\UploadedFile;
  */
 class AlbumController extends Controller
 {
+/*
     public function behaviors()
     {
         return [
@@ -26,6 +27,31 @@ class AlbumController extends Controller
             ],
         ];
     }
+*/
+
+    public function behaviors()
+    {
+        return [
+        'access' => [
+            'class' => \yii\filters\AccessControl::className(),
+            'only' => ['index', 'create', 'update', 'delete'],
+            'rules' => [
+                [
+                    'allow' => true,
+                    'roles' => ['@'],
+                ],
+              ],
+            ],
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['post'],
+                ],
+            ],
+        ];
+    }
+
+
 
     /**
      * Lists all Album models.
