@@ -30,7 +30,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'frontcoverfile')->fileInput() ?>
 
+    <?php
+        echo "<img src='/mymusic/backend/web/" . $model->frontcover . "' style='width: 200px'>&nbsp;";
+    ?>
+
     <?= $form->field($model, 'backcoverfile')->fileInput() ?>
+
+    <?php
+        echo "<img src='/mymusic/backend/web/" . $model->backcover . "' style='width: 200px'>";
+    ?>
+
 
     <?= $form->field($model, 'releasedat')->textInput() ?>
 
